@@ -1,0 +1,16 @@
+@import "./partials/card";
+@import "./partials/mixins";
+@import "./partials/buttons";
+@import "./partials/login";
+@import "./partials/loginButton";
+@import "./partials/header";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  text-align: center;
+}

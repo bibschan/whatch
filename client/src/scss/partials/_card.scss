@@ -1,0 +1,32 @@
+@import "./mixins";
+.card {
+  min-width: 320px;
+  height: fit-content;
+  padding-bottom: 15px;
+  margin-bottom: 40px;
+  background-color: pink;
+
+  &--poster {
+    height: 60%;
+    object-fit: cover;
+  }
+
+  &--info {
+    @include flex-mixin(row, wrap, center, space-evenly);
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    .title {
+      width: fit-content;
+    }
+    .year {
+      width: fit-content;
+    }
+  }
+
+  &--button {
+    @include flex-mixin(row, wrap, center, space-between);
+    position: relative;
+    bottom: 53px;
+  }
+}

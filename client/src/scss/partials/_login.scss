@@ -1,0 +1,14 @@
+.login {
+  height: 100vh;
+  @include flex-mixin(row, wrap, center, center);
+
+  &--input {
+    width: 300px;
+    height: 40px;
+  }
+}
+
+form {
+  margin-bottom: 100px;
+  @include flex-mixin(column, wrap, center, center);
+}
