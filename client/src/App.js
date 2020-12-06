@@ -1,8 +1,11 @@
 import React from 'react';
-import './scss/App.css';
 import CardList from './components/CardList.js';
 import Login from './components/Login';
+import Header from './elements/Header';
+import Matches from './components/Matches';
+import './scss/App.css';
 import axios from 'axios';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 
 class App extends React.Component {
@@ -10,7 +13,7 @@ class App extends React.Component {
   state = {
     userId: 0,
     groupId: 0,
-    authenticated: false,
+    authenticated: true,
   }
 
 
@@ -29,9 +32,17 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        {!this.state.authenticated && <Login authenticateUser={this.authenticateUser} />}
+        {/* {!this.state.authenticated && <Login authenticateUser={this.authenticateUser} />} */}
         {/* LOADING SCREEN???? */}
-        {this.state.authenticated && <CardList {...this.state} />}
+          <Router>
+          <Header />
+            {/* my router is not working, doesn't render the matches / */}
+            <Switch>
+              <Route path='/matches' component={Matches} /> 
+              {/* <Route path='/profile' component={Profile} /> */}
+              <Route path='/'> {this.state.authenticated && <CardList {...this.state} />} </Route>
+            </Switch>
+          </Router>
         </div>
       );
   }

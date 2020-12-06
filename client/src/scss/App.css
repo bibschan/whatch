@@ -100,6 +100,8 @@ input {
 .login--input {
   width: 300px;
   height: 40px;
+  border-radius: 20px;
+  padding-left: 10px;
 }
 
 form {

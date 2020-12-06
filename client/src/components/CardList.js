@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import Card from './Card';
-import Header from '../elements/Header';
 // delete JSONData once ready to go live
 const JSONData = require('./data.json');
 
@@ -81,7 +80,6 @@ getMovies(){
     return (
       <div className="cardList">
          <div className="container">
-           <Header />
           { this.state.arrayResults.length !== 0 && 
             <Card data={this.state.arrayResults} addMovieToArray={this.addMovieToArray} removeItemFromArray={this.removeItemFromArray} />
           // {this.state.arrayResults && 
