@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import Card from './Card';
+import Card from './../Card/Card';
 // delete JSONData once ready to go live
-const JSONData = require('./data.json');
+const JSONData = require('../data.json');
 
 
 let apiKey = "";

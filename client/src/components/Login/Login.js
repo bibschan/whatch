@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from '../elements/Button';
-import "./../scss/App.css";
+import Button from '../../elements/Buttons/Button';
+import "./../../scss/App.css";
 import axios from 'axios';
 
 class Login extends React.Component {

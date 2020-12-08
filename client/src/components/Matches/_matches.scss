@@ -1,0 +1,42 @@
+.matches {
+  &--movie {
+    margin-top: 30px;
+    margin-left: 16px;
+    margin-bottom: 20px;
+    @include flex-mixin(row, wrap, flex-start, left);
+  }
+
+  &--title {
+    width: fit-content;
+    margin-left: 10px;
+  }
+
+  &--synopsis {
+    width: 98%;
+    text-align: left;
+    margin-left: 10px;
+    // white-space: nowrap;
+    // height: 50px;
+    overflow: hidden;
+    // text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  &--div {
+    width: 80%;
+  }
+}
+
+.image-poster {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+h2 {
+  text-align: left;
+  margin-left: 16px;
+  margin-top: 20px;
+}

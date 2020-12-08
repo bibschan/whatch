@@ -1,5 +1,5 @@
-import AcceptButton from './../elements/AcceptButton';
-import DeclineButton from './../elements/DeclineButton';
+import AcceptButton from '../../elements/Buttons/AcceptButton';
+import DeclineButton from '../../elements/Buttons/DeclineButton';
 
 function Card(props) {
    const { id, poster, title, synopsis, year} = props.data.[0];

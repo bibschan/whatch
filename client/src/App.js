@@ -1,8 +1,8 @@
 import React from 'react';
-import CardList from './components/CardList.js';
-import Login from './components/Login';
-import Header from './elements/Header';
-import Matches from './components/Matches';
+import CardList from './components/CardList/CardList';
+import Login from './components/Login/Login';
+import Header from './elements/Header/Header';
+import Matches from './components/Matches/Matches';
 import './scss/App.css';
 import axios from 'axios';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -38,7 +38,9 @@ class App extends React.Component {
           <Header />
             {/* my router is not working, doesn't render the matches / */}
             <Switch>
-              <Route path='/matches' component={Matches} /> 
+              <Route path='/matches'>
+                <Matches groupId={this.state.groupId}/>
+              </Route> 
               {/* <Route path='/profile' component={Profile} /> */}
               <Route path='/'> {this.state.authenticated && <CardList {...this.state} />} </Route>
             </Switch>

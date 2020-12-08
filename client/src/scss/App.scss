@@ -1,9 +1,10 @@
-@import "./partials/card";
+@import "./../components/Card/card";
 @import "./partials/mixins";
-@import "./partials/buttons";
-@import "./partials/login";
-@import "./partials/loginButton";
-@import "./partials/header";
+@import "./../elements/Buttons/buttons";
+@import "./../components/Login/login";
+@import "./../components/Login/loginButton";
+@import "./../elements/Header/header";
+@import "./../components/Matches/matches";
 
 * {
   box-sizing: border-box;

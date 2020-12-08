@@ -1,4 +1,4 @@
-import './../scss/App.css';
+import './../../scss/App.css';
 
 function AcceptButton(props) {
     const { addMovieToArray, id } = props;
