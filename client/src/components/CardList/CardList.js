@@ -5,7 +5,7 @@ import Card from './../Card/Card';
 const JSONData = require('../data.json');
 
 
-let apiKey = "";
+// let apiKey = "6383079259msh7d18e69b4be3514p1b49b0jsn9180b504a13a";
 
 class CardList extends React.Component {
     state = {
@@ -30,16 +30,20 @@ getMovies(){
   //         "audio":"english",
   //         "offset":`${this.state.index}`,
   //         "end_year":"2020"}
-  //         }).then((response)=>{
-  //           response.data.results.forEach(element => {
-  //             this.setState({
-  //               arrayResults: [...this.state.arrayResults, element]
-  //             });
-  //           });
-  //           console.log(this.state.arrayResults);
-  //         }).catch((error)=>{
-  //           console.log(error);
-  //         })
+  //         }).then((response)=>
+  //         console.log(response.data.results)
+          
+          
+          // {
+          //   response.data.results.forEach(element => {
+          //      this.setState({
+          //       arrayResults: [...this.state.arrayResults, element]
+          //     });
+          //   });
+          //}
+          // ).catch((error)=>{
+          //   console.log(error);
+          // })
   }
 
   addMovieToArray = (id) => {

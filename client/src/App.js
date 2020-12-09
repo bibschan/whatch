@@ -6,13 +6,14 @@ import Matches from './components/Matches/Matches';
 import './scss/App.css';
 import axios from 'axios';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Show from './components/Show/Show';
 
 
 class App extends React.Component {
 
   state = {
-    userId: 0,
-    groupId: 0,
+    userId: 1,
+    groupId: 1,
     authenticated: true,
   }
 
@@ -38,6 +39,7 @@ class App extends React.Component {
           <Header />
             {/* my router is not working, doesn't render the matches / */}
             <Switch>
+            <Route path='/matches/:id' component={Show}/> 
               <Route path='/matches'>
                 <Matches groupId={this.state.groupId}/>
               </Route> 

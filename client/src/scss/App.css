@@ -209,6 +209,15 @@ h2 {
   margin-top: 20px;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.return-button {
+  width: 30px;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;

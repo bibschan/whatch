@@ -1,14 +1,18 @@
+import { Link } from 'react-router-dom';
+
 function MatchedItem(props) {
-    let {id, image1, matlabel, released, runtime, synopsis, title } = props.props;
+    let { id, img, synopsis, title, nfid } = props.props;
 
     return (
-        <div className="matches--movie">
-            <img src={image1} className="image-poster"/>
+    <Link to={`/matches/${nfid}`}> 
+          <div className="matches--movie">
+            <img src={img} className="image-poster" alt=""/>
             <div className="matches--div">
-                <h3 key={id} className="matches--title">{title}</h3> 
-                <p key={id} className="matches--synopsis">{synopsis}</p>
+                 <h3 className="matches--title">{title}</h3> 
+                <p className="matches--synopsis">{synopsis}</p>
             </div>
         </div>
+    </Link>
     )
 }
 
