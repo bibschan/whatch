@@ -26,8 +26,7 @@ class Login extends React.Component {
                 password: this.state.password 
             }
             axios.post('http://localhost:3000/users/login', object)
-            .then(
-                response => 
+            .then( response => 
                 this.props.authenticateUser(response.data.data)
             )
             .catch( 

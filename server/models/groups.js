@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
 
   }, {});
   Groups.associate = function(models) {
-    Groups.belongsToMany(models.Users, {through: 'UserGroups', foreignKey: 'groupIdFK'});
+    Groups.belongsToMany(models.Users, {through: 'UserGroups', foreignKey: 'groupIdFK'},  { onDelete: 'cascade' });
     // Groups.belongsToMany(models.Users, {through: 'UserGroups'});
   };
   return Groups;

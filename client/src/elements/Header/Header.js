@@ -11,7 +11,7 @@ function Header () {
                     <Link to="/matches">
                         <img src='assets/messages-logo.png' className="icon" alt=""/>
                     </Link>
-                    <Link to=''>
+                    <Link to='/profile'>
                         <img src="assets/profile-logo.png" className="icon" alt=""/>
                     </Link>
             </div>

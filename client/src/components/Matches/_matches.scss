@@ -2,7 +2,7 @@
   &--movie {
     margin-top: 30px;
     margin-left: 16px;
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
     @include flex-mixin(row, wrap, flex-start, left);
   }
 
@@ -44,4 +44,14 @@ h2 {
 a {
   text-decoration: none;
   color: black;
+}
+
+.trash-icon {
+  width: 15px;
+  margin-left: 63px;
+  position: relative;
+  bottom: 63px;
+}
+.trash--div {
+  width: fit-content;
 }

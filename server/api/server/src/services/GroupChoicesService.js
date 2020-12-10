@@ -40,15 +40,13 @@ class GroupChoicesService {
         try {
             const choiceToDelete = await db.GroupChoices.findOne({
               where: { 
-                groupIdFK: Number(groupChoice.groupIdFK),
-                movieId: Number(groupChoice.movieId)
+                groupIdFK: groupChoice.groupIdFK,
+                movieId: groupChoice.movieId
               },
             });
-      
-            if (choiceToDelete) {
-            return await db.UserChoices.destroy({
-                where: { id: Number(choiceToDelete.id) },
-              });
+            
+            if (choiceToDelete !== null) {
+              return await choiceToDelete.destroy();
             }
           } catch (error) {
             throw error;

@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     {}
   );
   Users.associate = function (models) {
-    Users.belongsToMany(models.Groups, {through: 'UserGroups', foreignKey: 'userIdFK'})
+    Users.belongsToMany(models.Groups, {through: 'UserGroups', foreignKey: 'userIdFK'},  { onDelete: 'cascade' })
     // Users.hasMany(models.UserChoices, {as: 'userIdFK'})
   };
   return Users;

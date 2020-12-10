@@ -3,10 +3,11 @@ import CardList from './components/CardList/CardList';
 import Login from './components/Login/Login';
 import Header from './elements/Header/Header';
 import Matches from './components/Matches/Matches';
+import Profile from './components/Profile/Profile';
+import Show from './components/Show/Show';
 import './scss/App.css';
 import axios from 'axios';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Show from './components/Show/Show';
 
 
 class App extends React.Component {
@@ -43,7 +44,7 @@ class App extends React.Component {
               <Route path='/matches'>
                 <Matches groupId={this.state.groupId}/>
               </Route> 
-              {/* <Route path='/profile' component={Profile} /> */}
+              <Route path='/profile' component={Profile} />
               <Route path='/'> {this.state.authenticated && <CardList {...this.state} />} </Route>
             </Switch>
           </Router>

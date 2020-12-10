@@ -67,7 +67,7 @@ class GroupChoicesController {
             if(group) {
                 util.setSuccess(200, "Group Choice Deleted!", group);
             } else {
-                util.setSuccess(200, `Couldn't delete group choice`);
+                util.setError(400, `Couldn't delete group choice`, error);
             }
             return util.send(res);
         } catch (error) {

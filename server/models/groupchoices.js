@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   GroupChoices.associate = function(models) {
     // associations can be defined here
-    GroupChoices.belongsTo(models.Groups,{foreignKey: 'groupIdFK'})
+    GroupChoices.belongsTo(models.Groups,{foreignKey: 'groupIdFK'} )
   };
   return GroupChoices;
 };
