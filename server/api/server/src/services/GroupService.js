@@ -29,6 +29,24 @@ class GroupService {
             throw error;
           }
     }
+
+    static async updateGroupName(id, groupName) {
+      try {
+        const groupToPatch = await db.Groups.findOne({
+          where: { id: Number(id) },
+        });
+        console.log(groupToPatch);
+  
+        if (groupToPatch) {
+          groupToPatch.update({
+            groupName: groupName
+          })
+          return groupName;
+        }
+      } catch(error) {
+          throw error;
+      }
+    }
     static async deleteGroup(id) {
         try {
             const UserToDelete = await db.Groups.findOne({

@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
+import {Link, Route, Switch} from 'react-router-dom';
+import ModifyGroup from '../ModifyGroup/ModifyGroup';
 
 class Profile extends React.Component {
     state = {
@@ -9,8 +10,18 @@ class Profile extends React.Component {
         groupMembersObjects: []
     }
     
-    modifyGroupName(){
-
+    modifyGroupName = (name) => {
+        if(name !== '') {
+            axios({
+                method: 'patch',
+                url: `http://localhost:3000/groups/${this.props.groupId}`,
+                data: {
+                  groupName: name
+                }
+              })
+              .then( response => this.setState({ groupName: response.data.data }))
+              .catch( error => console.log(error));
+        } 
     }
 
     getGroupInfo(){
@@ -44,7 +55,7 @@ class Profile extends React.Component {
     }
 
     updatePassword(){
-
+        //upcoming feature
     }
 
     componentDidMount(){
@@ -57,13 +68,12 @@ class Profile extends React.Component {
         return(
             <div>
                 <h1>Profile</h1>
-
-                <p>You're a member of <b>{this.state.groupName}</b> along with {this.state.groupMembersObjects.map((element) => ( <span key={element.id}>{element.firstName} {element.lastName} </span> ))} </p> 
-                
-                <Link to='/profile/modify'>Modify group name</Link>
-
-                <p>User section</p>
-                <p>Update password</p>
+                <Link to='/profile'><button>Main Profile</button></Link>
+                <Link to='/profile/modify'><button>Profile - Update Group's Name</button></Link>
+                    <Switch>
+                        <Route path='/profile/modify'> <ModifyGroup groupName={this.state.groupName} modifyGroupName={this.modifyGroupName}/> </Route>
+                        <Route exact path='/profile'> <p>You're a member of <b>{this.state.groupName}</b> along with {this.state.groupMembersObjects.map((element) => ( <span key={element.id}>{element.firstName} {element.lastName} </span> ))} </p>  </Route>
+                    </Switch>
             </div>
         )
     }

@@ -6,6 +6,7 @@ const router = Router();
 
 router.get("/", GroupController.getAllGroups);
 router.get("/:id", GroupController.getAGroup);
+router.patch('/:id', GroupController.updateGroupName)
 router.post("/", GroupController.createGroup);
 router.delete("/:id", GroupController.deleteGroup);
 

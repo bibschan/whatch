@@ -42,7 +42,7 @@ class App extends React.Component {
             <Switch>
               <Route path='/matches/:id' component={Show}/> 
               <Route path='/matches'> <Matches groupId={this.state.groupId}/> </Route> 
-              <Route path='/profile/modify' component={ModifyGroup} />
+              {/* <Route path='/profile/modify'> <ModifyGroup /> </Route> */}
               <Route path='/profile'> <Profile groupId={this.state.groupId} userId={this.state.userId}/> </Route>
               <Route path='/'> {this.state.authenticated && <CardList {...this.state} />} </Route>
             </Switch>

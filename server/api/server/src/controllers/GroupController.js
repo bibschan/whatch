@@ -56,6 +56,21 @@ class GroupController {
             return util.send(res);
         }
     }
+
+    static async updateGroupName(req, res) {
+        const { groupName } = req.body;
+        const { id } = req.params;
+
+        const updateGroupName = await GroupService.updateGroupName(id, groupName);
+        if(updateGroupName) {
+            util.setSuccess(201, `Updated your group name successfully to ${groupName}`, groupName)
+        } else {
+            util.setError(400, "Please provide full details")
+        }
+        return util.send(res);
+
+        
+    }
     static async deleteGroup(req,res) {
         const { id } = req.params;
 
