@@ -40,14 +40,14 @@ class UserGroupsController {
     const { id } = req.params;
 
     if (!Number(id)) {
-      util.setError(400, "Please provide a valid userIdFK value");
+      util.setError(400, "Please provide a valid groupIdFK value");
       return util.send(res);
     }
 
     try {
       const group = await UserGroupsService.getAUserGroupById(id);
       if (!group) {
-        util.setError(404, `Group containing userIdFK ${id} doesn't exist`);
+        util.setError(404, `Group containing groupIdFK ${id} doesn't exist`);
       } else {
         util.setSuccess(200, "Found UserGroup", group);
       }

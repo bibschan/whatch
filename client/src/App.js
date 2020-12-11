@@ -4,6 +4,7 @@ import Login from './components/Login/Login';
 import Header from './elements/Header/Header';
 import Matches from './components/Matches/Matches';
 import Profile from './components/Profile/Profile';
+import ModifyGroup from './components/ModifyGroup/ModifyGroup';
 import Show from './components/Show/Show';
 import './scss/App.css';
 import axios from 'axios';
@@ -38,13 +39,11 @@ class App extends React.Component {
         {/* LOADING SCREEN???? */}
           <Router>
           <Header />
-            {/* my router is not working, doesn't render the matches / */}
             <Switch>
-            <Route path='/matches/:id' component={Show}/> 
-              <Route path='/matches'>
-                <Matches groupId={this.state.groupId}/>
-              </Route> 
-              <Route path='/profile' component={Profile} />
+              <Route path='/matches/:id' component={Show}/> 
+              <Route path='/matches'> <Matches groupId={this.state.groupId}/> </Route> 
+              <Route path='/profile/modify' component={ModifyGroup} />
+              <Route path='/profile'> <Profile groupId={this.state.groupId} userId={this.state.userId}/> </Route>
               <Route path='/'> {this.state.authenticated && <CardList {...this.state} />} </Route>
             </Switch>
           </Router>

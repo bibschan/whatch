@@ -22,8 +22,8 @@ class UserGroupsService {
 
   static async getAUserGroupById(id) {
     try {
-      const group = await db.UserGroups.findOne({
-        where: { userIdFK: Number(id) },
+      const group = await db.UserGroups.findAll({
+        where: { groupIdFK: Number(id) },
       });
 
       console.log(group);

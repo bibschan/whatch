@@ -8,7 +8,7 @@ class Matches extends React.Component{
     state = {
         matchesArray: [],
         getMovieDetails: JSONData,
-        groupName: 0,
+        groupName: '',
         forceRerender: ''
     }
 
