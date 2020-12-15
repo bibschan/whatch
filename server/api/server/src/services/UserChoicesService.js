@@ -26,24 +26,8 @@ class UserChoicesService {
           }
     }
 
-    // should I call this function somewhere?
-    static async triggerForMovieGroupMatch(groupIdFK, movieId) {
-        try {
-            // console.log(id);
-            const match = await db.UserChoices.findAll({
-                where: { 
-                    groupIdFK: Number(groupIdFK),
-                    movieId: Number(movieId)
-                },
-              });
-              return match;
-          } catch (error) {
-            throw error;
-          }
-    }
 
     static async createUserChoice(userChoice) {
-      // console.log(userChoice);
         try {
           return await db.UserChoices.create(userChoice)
           //  {
@@ -51,6 +35,7 @@ class UserChoicesService {
           //   userIdFK: userChoice.userIdFK,
           //   groupIdFK: userChoice.groupIdFK
           // }
+          
           } catch (error) {
             throw error;
           }

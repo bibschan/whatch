@@ -39,9 +39,10 @@ class UserChoicesController {
             return util.send(res);
           }
      
-          // throwing error mesmo quando insere na database com sucesso?
+          // ele só throw error quando o trigger tá errado.
         try {
             const userChoice = await UserChoicesService.createUserChoice(req.body);
+            console.log(userChoice);
             util.setSuccess(201, "User Choice Created!", userChoice);
             return util.send(res)
            

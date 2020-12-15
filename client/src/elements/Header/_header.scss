@@ -4,10 +4,14 @@
 }
 
 .header {
+  // background-color: #f6f6f6;
+  background-color: #ffc983;
+
   &--flex {
-    @include flex-mixin(row, nowrap, baseline, space-between);
+    @include flex-mixin(row, nowrap, center, space-between);
     margin-left: auto;
     margin-right: auto;
+    height: 60px;
     width: 80%;
   }
 }

@@ -55,13 +55,10 @@ class GroupChoicesController {
         }
     }
     static async deleteChoice(req,res) {
-    //   console.log(req.params);
         if (!req.params) {
             util.setError(400, "Please provide a movieId and groupId");
             return util.send(res);
           }
-          // not deleting because of the foreign key. do i need to set
-          // onDelete: "SET NULL" ? I don't want to cascade 
         try {
             const group = await GroupChoicesService.deleteChoice(req.params);
             if(group) {

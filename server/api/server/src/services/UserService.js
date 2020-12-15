@@ -48,6 +48,23 @@ class UserService {
     }
   }
 
+  static async getUserByEmailForGroup(email){
+    try {
+      //console.log(email);
+      const theUser = await db.Users.findOne({
+        where: { email: email }
+      });
+     
+      if(theUser !== null) {
+        return theUser;
+      } else {
+        return null;
+      }
+    } catch (error) {
+      throw error;
+    }
+  }
+
   static async UserToReturn(email, password) {
     try {
       const theUser = await db.Users.findOne({

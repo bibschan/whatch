@@ -24,7 +24,6 @@ class GroupChoicesService {
 
     static async createGroupChoice(choice) {
         try {
-       
           const request = await db.GroupChoices.create({
             movieId: choice.movieId,
             groupIdFK: choice.groupIdFK
@@ -36,7 +35,7 @@ class GroupChoicesService {
           }
     }
     static async deleteChoice(groupChoice) {
-      console.log(groupChoice);
+      // console.log(groupChoice);
         try {
             const choiceToDelete = await db.GroupChoices.findOne({
               where: { 
@@ -44,7 +43,7 @@ class GroupChoicesService {
                 movieId: groupChoice.movieId
               },
             });
-            
+            // console.log(choiceToDelete);
             if (choiceToDelete !== null) {
               return await choiceToDelete.destroy();
             }

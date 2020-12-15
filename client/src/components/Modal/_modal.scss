@@ -1,19 +1,22 @@
 .modal {
   font-size: 16px;
-  background-color: pink;
+  background-color: #f6f6f6;
   margin-left: 20px;
   margin-right: 20px;
+  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.8));
 }
 .modal > .header {
+  background-color: #ffc983;
   width: 100%;
-  border-bottom: 1px solid gray;
+  // border-bottom: 1px solid gray;
   font-size: 18px;
   text-align: center;
-  padding: 5px;
+  padding: 12px;
 }
 .modal > .content {
+  text-align: center;
   width: 100%;
-  padding: 10px 5px;
+  padding: 15px 5px;
 }
 .modal > .actions {
   width: 100%;
@@ -33,4 +36,19 @@
   background: #ffffff;
   border-radius: 18px;
   border: 1px solid #cfcece;
+}
+
+.MuiButton-label {
+  * {
+    color: red;
+  }
+  color: red;
+}
+
+.delete-button {
+}
+
+.MuiDivider-middle {
+  margin-left: 16px;
+  margin-right: 16px;
 }

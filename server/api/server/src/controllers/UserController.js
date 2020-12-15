@@ -121,6 +121,25 @@ class UserController {
       return util.send(res);
     }
   }
+  static async getUserByEmailForGroup(req, res) {    
+    if (req.params.email == Number) {
+      util.setError(400, "Please provide an email");
+      return util.send(res);
+    }
+    try {
+      const UserToReturn = await UserService.getUserByEmailForGroup(req.params.email);
+      console.log(UserToReturn);
+      if (UserToReturn) {
+        util.setSuccess(200, "User Returned", UserToReturn);
+      } else {
+        util.setError(404, `User with the email ${email} cannot be found`);
+      }
+      return util.send(res);
+    } catch (error) {
+      util.setError(400, `User with the email ${email} cannot be found`, error);
+      return util.send(res);
+    }
+  }
 }
 
 export default UserController;

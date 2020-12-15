@@ -39,12 +39,8 @@ class GroupController {
             util.setError(400, "Please provide a groupName details");
             return util.send(res);
           }
-        console.log(req);
-        const groupInfo = req.body;
-        
         try {
-            // there's something wrong with the ID increment???
-            const group = await GroupService.createGroup(groupInfo);
+            const group = await GroupService.createGroup(req.body.groupName);
             if(group) {
                 util.setSuccess(200, "Group Created!", group);
             } else {

@@ -1,4 +1,8 @@
 import { Link } from "react-router-dom";
+import HomeIcon from '@material-ui/icons/Home';
+import PersonIcon from '@material-ui/icons/Person';
+import MovieFilterIcon from '@material-ui/icons/MovieFilter';
+
 
 function Header () {
     return (
@@ -6,13 +10,16 @@ function Header () {
             <div className='header--flex'>
                 
                     <Link to="/">
-                        <img src='assets/movies-logo.png' className="icon" alt=""/>
+                    <HomeIcon fontSize="large" />
+                        {/* <img src='assets/movies-logo.png' className="icon" alt=""/> */}
                     </Link>
                     <Link to="/matches">
-                        <img src='assets/messages-logo.png' className="icon" alt=""/>
+                        <MovieFilterIcon fontSize="large"/>
+                        {/* <img src='assets/messages-logo.png' className="icon" alt=""/> */}
                     </Link>
                     <Link to='/profile'>
-                        <img src="assets/profile-logo.png" className="icon" alt=""/>
+                        <PersonIcon fontSize="large"/>
+                        {/* <img src="assets/profile-logo.png" className="icon" alt=""/> */}
                     </Link>
             </div>
         </div>

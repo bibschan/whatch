@@ -4,17 +4,18 @@ import Login from './components/Login/Login';
 import Header from './elements/Header/Header';
 import Matches from './components/Matches/Matches';
 import Profile from './components/Profile/Profile';
-import ModifyGroup from './components/ModifyGroup/ModifyGroup';
 import Show from './components/Show/Show';
 import './scss/App.css';
 import axios from 'axios';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Divider from '@material-ui/core/Divider';
+
 
 
 class App extends React.Component {
 
   state = {
-    userId: 1,
+    userId: 2,
     groupId: 1,
     authenticated: true,
   }
@@ -39,6 +40,7 @@ class App extends React.Component {
         {/* LOADING SCREEN???? */}
           <Router>
           <Header />
+          <Divider variant='middle'/>
             <Switch>
               <Route path='/matches/:id' component={Show}/> 
               <Route path='/matches'> <Matches groupId={this.state.groupId}/> </Route> 

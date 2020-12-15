@@ -35,8 +35,8 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          groupIdFK: 2,
-          movieId: 80200767,
+          groupIdFK: 1,
+          movieId: 70184207,
           createdAt: new Date(),
           updatedAt: new Date(),
         },

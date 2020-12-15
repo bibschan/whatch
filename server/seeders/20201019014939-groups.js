@@ -22,7 +22,13 @@ module.exports = {
           updatedAt: new Date()
         }
         
-        ], {});
+        ], {})
+        // this code below is just restarting the id auto-increment count. Without this code, I ran into issues such as "this id already exists"
+        .then(async () => db.query(`ALTER SEQUENCE "${model.Groups}_id_seq" RESTART WITH ${await model.count() + 1}`))
+        .catch(error => {
+            if (error.message.indexOf('already exists') > -1) return
+            console.error(error)
+        });
    
   },
 

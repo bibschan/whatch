@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import React from 'react';
+import Button from '@material-ui/core/Button';
+
 
 class ModifyGroup extends React.Component {
     state = {
@@ -22,7 +24,7 @@ class ModifyGroup extends React.Component {
                     <label className='modify-group--form__label'>New Group Name</label>
                     <input type='textbox' className='modify-group--form__input' onChange={this.handleInputChange} value={this.state.newGroupName}></input>
                 </form>
-                <Link to='/profile'> <button onClick={() => modifyGroupName(this.state.newGroupName)} className='modify-group--button'>Change Group Name</button> </Link>
+                <Link to='/profile'> <Button variant="contained" color="primary" onClick={() => modifyGroupName(this.state.newGroupName)} className='modify-group--button'>Change Group Name</Button> </Link>
             </div>
         )
     }

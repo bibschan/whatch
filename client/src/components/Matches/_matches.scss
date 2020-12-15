@@ -1,4 +1,8 @@
 .matches {
+  min-height: 100vh;
+  height: fit-content;
+  padding-bottom: 30px;
+
   &--movie {
     margin-top: 30px;
     margin-left: 16px;
@@ -7,14 +11,23 @@
   }
 
   &--title {
+    text-align: left;
     width: fit-content;
     margin-left: 10px;
+    overflow: hidden;
+    // text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
   }
 
   &--synopsis {
     width: 98%;
     text-align: left;
     margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
     // white-space: nowrap;
     // height: 50px;
     overflow: hidden;
@@ -27,15 +40,22 @@
   &--div {
     width: 80%;
   }
+
+  &--item {
+    margin-bottom: 25px;
+    text-align: end;
+    margin-right: 16px;
+  }
 }
 
 .image-poster {
-  width: 60px;
-  height: 60px;
+  width: 66px;
+  height: 66px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
-h2 {
+h1 {
   text-align: left;
   margin-left: 16px;
   margin-top: 20px;
@@ -54,4 +74,5 @@ a {
 }
 .trash--div {
   width: fit-content;
+  display: inline-block;
 }

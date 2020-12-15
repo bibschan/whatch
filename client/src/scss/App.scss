@@ -7,13 +7,18 @@
 @import "./../components/Matches/matches";
 @import "./../components/Show/show";
 @import "./../components/Modal/modal";
+@import "./../components/ModifyGroup/ModifyGroup";
+@import "./../components/Profile/profile";
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "Roboto";
+  color: #2e2b2b;
 }
 
 .app {
   text-align: center;
+  background-color: #f6f6f6;
 }

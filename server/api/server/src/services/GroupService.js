@@ -23,7 +23,7 @@ class GroupService {
     }
     static async createGroup(groupInfo) {
         try {
-            const group = await db.Groups.create(groupInfo);
+            const group = await db.Groups.create({groupName: groupInfo});
               return group;
           } catch (error) {
             throw error;

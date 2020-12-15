@@ -1,17 +1,16 @@
 .card {
   min-width: 320px;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  padding-bottom: 15px;
-  margin-bottom: 40px;
-  background-color: pink;
+  height: 100vh;
+  margin-bottom: 10px;
+  background-color: #f6f6f6;
 }
 
 .card--poster {
-  height: 60%;
   -o-object-fit: cover;
      object-fit: cover;
+  padding-top: 23px;
+  -webkit-filter: drop-shadow(0.4rem 0.4rem 0.4rem rgba(0, 0, 0, 0.5));
+          filter: drop-shadow(0.4rem 0.4rem 0.4rem rgba(0, 0, 0, 0.5));
 }
 
 .card--info {
@@ -32,6 +31,8 @@
           justify-content: space-evenly;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
+  bottom: 88px;
   width: 90%;
 }
 
@@ -39,12 +40,18 @@
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  margin-left: 0px;
+  margin-top: 0px;
 }
 
 .card--info .year {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+}
+
+.card--info .synopsis {
+  margin-top: 10px;
 }
 
 .card--button {
@@ -64,7 +71,8 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   position: relative;
-  bottom: 53px;
+  width: 100%;
+  bottom: 60px;
 }
 
 .accept-button {
@@ -134,6 +142,10 @@ form {
   height: 40px;
 }
 
+.header {
+  background-color: #ffc983;
+}
+
 .header--flex {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -144,15 +156,24 @@ form {
           flex-direction: row;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-left: auto;
   margin-right: auto;
+  height: 60px;
   width: 80%;
+}
+
+.matches {
+  min-height: 100vh;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding-bottom: 30px;
 }
 
 .matches--movie {
@@ -176,16 +197,23 @@ form {
 }
 
 .matches--title {
+  text-align: left;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   margin-left: 10px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 .matches--synopsis {
   width: 98%;
   text-align: left;
   margin-left: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -196,13 +224,21 @@ form {
   width: 80%;
 }
 
-.image-poster {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
+.matches--item {
+  margin-bottom: 25px;
+  text-align: end;
+  margin-right: 16px;
 }
 
-h2 {
+.image-poster {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+h1 {
   text-align: left;
   margin-left: 16px;
   margin-top: 20px;
@@ -224,6 +260,7 @@ a {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  display: inline-block;
 }
 
 .return-button {
@@ -238,10 +275,14 @@ a {
 .show--poster {
   width: 300px;
   margin-bottom: 16px;
+  -webkit-filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.6));
+          filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.6));
 }
 
 .show--header {
-  width: 70%;
+  margin-bottom: 16px;
+  margin-top: 16px;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -254,9 +295,14 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+}
+
+.show--header__title {
+  margin-left: 16px;
+  margin-top: 0px;
 }
 
 .show--imdb {
@@ -287,22 +333,25 @@ span {
 
 .modal {
   font-size: 16px;
-  background-color: pink;
+  background-color: #f6f6f6;
   margin-left: 20px;
   margin-right: 20px;
+  -webkit-filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.8));
+          filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.8));
 }
 
 .modal > .header {
+  background-color: #ffc983;
   width: 100%;
-  border-bottom: 1px solid gray;
   font-size: 18px;
   text-align: center;
-  padding: 5px;
+  padding: 12px;
 }
 
 .modal > .content {
+  text-align: center;
   width: 100%;
-  padding: 10px 5px;
+  padding: 15px 5px;
 }
 
 .modal > .actions {
@@ -326,14 +375,63 @@ span {
   border: 1px solid #cfcece;
 }
 
+.MuiButton-label {
+  color: red;
+}
+
+.MuiButton-label * {
+  color: red;
+}
+
+.MuiDivider-middle {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.modify-group--form {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: pink;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.modify-group--button {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.modify-group--label {
+  font-size: 17px;
+}
+
+.profile {
+  height: 100vh;
+}
+
+.button {
+  border: 2px solid black;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "Roboto";
+  color: #2e2b2b;
 }
 
 .app {
   text-align: center;
+  background-color: #f6f6f6;
 }
 /*# sourceMappingURL=App.css.map */

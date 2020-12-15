@@ -4,7 +4,6 @@ import Card from './../Card/Card';
 // delete JSONData once ready to go live
 const JSONData = require('../data.json');
 
-
 // let apiKey = "6383079259msh7d18e69b4be3514p1b49b0jsn9180b504a13a";
 
 class CardList extends React.Component {
@@ -79,6 +78,7 @@ getMovies(){
   componentDidMount() {
     this.getMovies();
   }
+  
 
   render(){
     return (
@@ -91,7 +91,6 @@ getMovies(){
             //     <Card data={element} addMovieToArray={this.props.addMovieToArray}/>
             //  ))
            }
-           
          </div>
      </div>
    )

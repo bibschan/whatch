@@ -1,0 +1,16 @@
+.modify-group {
+  &--form {
+    height: fit-content;
+    background-color: pink;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    display: flex;
+  }
+  &--button {
+    height: fit-content;
+  }
+
+  &--label {
+    font-size: 17px;
+  }
+}

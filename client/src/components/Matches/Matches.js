@@ -2,14 +2,14 @@ import axios from 'axios';
 import React from 'react';
 import MatchedItem from '../MatchedItems/MatchedItem';
 import { v4 as uuid } from 'uuid';
+import Divider from '@material-ui/core/Divider';
 const JSONData = require('../data.json');
 
 class Matches extends React.Component{
     state = {
         matchesArray: [],
         getMovieDetails: JSONData,
-        groupName: '',
-        forceRerender: ''
+        groupName: ''
     }
 
     getData(){
@@ -23,13 +23,15 @@ class Matches extends React.Component{
     }
 
 
-    // the backend function works, it deletes. I'm having trouble to rerender the component
     delete = (nfid, groupId) => {
         axios
         .delete(`http://localhost:3000/groupchoices/${groupId}/${nfid}`)
-        .then( response => this.setState({
-            forceRerender: uuid()
-        }))
+        .then( response => {
+            if( response.status === 200) {
+                this.setState({
+                    matchesArray: this.state.matchesArray.filter(element => element.movieId !== nfid)
+                })
+            }})
         .catch(error => console.log(error))        
     }
 
@@ -66,8 +68,10 @@ class Matches extends React.Component{
         //     )
         //   .catch(error =>
         //       console.error(error));
-        let movie = this.state.getMovieDetails.filter(element => element.nfid == id);
-        
+        // console.log(typeof id);
+       
+        let movie = this.state.getMovieDetails.filter(element => (element.nfid === id ));
+
         return movie[0]; 
     }
 
@@ -78,12 +82,12 @@ class Matches extends React.Component{
 
     render(){
         return(
-            <div>
-                <h2>{this.props.groupId !== 0 ? `Group ${this.state.groupName} matches`  : 'Group Matches'}</h2>
+            <div className='matches'>
+                <h1>{this.props.groupId !== 0 ? `${this.state.groupName} matches`  : 'Group Matches'}</h1>
                 {this.state.matchesArray.map( item => 
                     (   <div key={item.movieId} >
-                            <MatchedItem props={this.getMovieDetails(item.movieId)} groupId={this.props.groupId} delete={this.delete} rerender={this.state.forceRerender}/>
-                            {/* <MatchedItem props={this.state.getMovieDetails.filter(element => element.netflixid == item.movieId )}/> */}
+                            <MatchedItem props={this.getMovieDetails(item.movieId)} groupId={this.props.groupId} delete={this.delete} />
+                            <Divider variant='middle' />
                         </div>
                     ))}
             </div>

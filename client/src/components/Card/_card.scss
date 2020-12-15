@@ -1,32 +1,41 @@
 @import "./../../scss/partials/mixins";
 .card {
   min-width: 320px;
-  height: fit-content;
-  padding-bottom: 15px;
-  margin-bottom: 40px;
-  background-color: pink;
+  height: 100vh;
+  // padding-bottom: 15px;
+  margin-bottom: 10px;
+  background-color: #f6f6f6;
 
   &--poster {
-    height: 60%;
     object-fit: cover;
+    padding-top: 23px;
+    filter: drop-shadow(0.4rem 0.4rem 0.4rem rgba(0, 0, 0, 0.5));
   }
 
   &--info {
     @include flex-mixin(row, wrap, center, space-evenly);
     margin-left: auto;
     margin-right: auto;
+    position: relative;
+    bottom: 88px;
     width: 90%;
     .title {
       width: fit-content;
+      margin-left: 0px;
+      margin-top: 0px;
     }
     .year {
       width: fit-content;
+    }
+    .synopsis {
+      margin-top: 10px;
     }
   }
 
   &--button {
     @include flex-mixin(row, wrap, center, space-between);
     position: relative;
-    bottom: 53px;
+    width: 100%;
+    bottom: 60px;
   }
 }
