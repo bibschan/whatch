@@ -11,10 +11,8 @@ class GroupService {
     }
     static async getAGroup(id) {
         try {
-          console.log(id);
             const group = await db.Groups.findOne({
-                where: { id: Number(id) },
-               
+                where: { id: Number(id) }
               });
               return group;
           } catch (error) {
@@ -24,7 +22,12 @@ class GroupService {
     static async createGroup(groupInfo) {
         try {
             const group = await db.Groups.create({groupName: groupInfo});
+            if(group !== null) {
               return group;
+            } else {
+              return null;
+            }
+              // return group;
           } catch (error) {
             throw error;
           }

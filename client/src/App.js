@@ -10,16 +10,12 @@ import axios from 'axios';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Divider from '@material-ui/core/Divider';
 
-
-
 class App extends React.Component {
-
   state = {
     userId: 2,
     groupId: 1,
     authenticated: true,
   }
-
 
   authenticateUser = (data) => {
     this.setState({

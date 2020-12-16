@@ -2,12 +2,14 @@ import axios from 'axios';
 import React from 'react';
 import {Link} from 'react-router-dom';
 import Button from '@material-ui/core/Button';
-
+import TextField from '@material-ui/core/TextField';
 
 class CreateGroup extends React.Component {
     state = {
         groupMember: '',
-        groupName: ''
+        groupName: '',
+        groupMemberID: 0,
+        groupID: 0
     }
 
     handleInput = (event) => {
@@ -24,7 +26,12 @@ class CreateGroup extends React.Component {
                 url: `http://localhost:3000/users/${member}`
               })
               .then(response => {
+                  // saving the user's ID to adjust the usergroups table
+                  
                     if(response.data.data.email === member){
+                        this.setState({
+                            groupMemberID: response.data.data.id
+                        });
                         //if the invited user exists, then goes ahead and create a new group
                         axios({
                             method: 'post',
@@ -34,8 +41,18 @@ class CreateGroup extends React.Component {
                             }
                           })
                           .then(response => 
-                             alert("Group created successfully"), 
-                             
+                            // patch the record in usergroups to update the current group
+                            this.setState({
+                                groupID: response.data.data.id
+                            }),
+                            // go ahead an PUT both users in the usergroups table
+                            // axios({
+                            //     method: 'patch',
+                            //     url: 'http://localhost:3000/usergroups',
+                            //     data: {
+                            //       groupIdFK: name,
+                            //     }
+                            //   }),                             
                             )
                           .catch(error => console.log(error))
                     } else {
@@ -49,17 +66,17 @@ class CreateGroup extends React.Component {
 
     render() {
         return(
-            <div>
-                <p>Create Group</p>
-                <label>Who would you like to create a group with? Use your friend's email</label>
-                <input placeholder='Email' value={this.state.groupMember} name='groupMember' onChange={this.handleInput}></input>
-                <label>What's the group's name?</label>
-                <input placeholder='Group Name' value={this.state.groupName} name='groupName' onChange={this.handleInput}></input>
-
-                
-                <Button variant="contained" color="primary" onClick={() => this.createGroup(this.state.groupName, this.state.groupMember)}>
-                   <p>Create Group!</p>
-                </Button>
+            <div className='create-group'>
+                <h2 className='create-group--h2'>Create Group</h2>
+                <form autoComplete='off'>
+                    <p className='create-group--p'>Who would you like to create a group with?</p>
+                    <TextField id="standard-basic" label="Your Friend's Email" value={this.state.groupMember} name='groupMember' onChange={this.handleInput}/>
+                    {/* <input placeholder='Email' value={this.state.groupMember} name='groupMember' onChange={this.handleInput}></input> */}
+                    <p className='create-group--p'>What is the new group's name?</p>
+                    <TextField id="standard-basic" label="Group Name" value={this.state.groupName} name='groupName' onChange={this.handleInput}/>
+                    {/* <input placeholder='Group Name' value={this.state.groupName} name='groupName' onChange={this.handleInput}></input> */}
+                </form>
+                 <Button variant="contained" color="primary" onClick={() => this.createGroup(this.state.groupName, this.state.groupMember)}><Link to='/profile'> Create Group </Link></Button> 
             </div>
         )
     }

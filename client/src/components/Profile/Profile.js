@@ -1,12 +1,20 @@
 import React from 'react';
 import axios from 'axios';
 import {Link, Route, Switch} from 'react-router-dom';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import ModifyGroup from '../ModifyGroup/ModifyGroup';
 import CreateGroup from '../CreateGroup/CreateGroup';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import Divider from '@material-ui/core/Divider';
+import AddIcon from '@material-ui/icons/Add';
+import UndoIcon from '@material-ui/icons/Undo';
 
 class Profile extends React.Component {
     state = {
+        activeUser: '',
         groupName: '',
         groupMembers: [],
         groupMembersObjects: []
@@ -52,28 +60,55 @@ class Profile extends React.Component {
         .get(`http://localhost:3000/users/${element}`)
         .then( response =>  this.setState({ groupMembersObjects: [...this.state.groupMembersObjects, response.data.data]}))
         .catch( error => console.log(error)))
+    }
 
-        
+    getActiveUser(){
+        axios
+        .get(`http://localhost:3000/users/${this.props.userId}`)
+        .then( response =>  this.setState({ activeUser: response.data.data.firstName }))
+        .catch( error => console.log(error))
     }
 
     componentDidMount(){
         this.getGroupInfo();
+        this.getActiveUser();
         this.getGroupMembers();
-        setTimeout(() =>this.getGroupMembersNames(), 500);
+        setTimeout(() => this.getGroupMembersNames(), 500);
     }
 
     render() {
         return(
             <div className='profile'>
-                <h1>Profile</h1>
-                <Link to='/profile'> <Button variant="outlined" color="primary">Main Profile</Button></Link>
-                <Link to='/profile/modify'> <Button variant="outlined" color="primary"> Update Group Name </Button></Link>
-                <Link to='/profile/create'> <Button variant="outlined" color="primary"> Create New Group</Button></Link>
+                <Link to='/profile'> <h1>Profile</h1> </Link>
+                {/* <Link to='/profile'> <Button variant="outlined" color="primary">Main Profile</Button></Link> */}
+               <div className='profile--menu-container'>
+                <List component="nav" aria-label="main mailbox folders">
+                        <ListItem button>
+                            <Link to='/profile/modify'>
+                                <ListItemIcon> <UndoIcon/>  </ListItemIcon>
+                                <ListItemText primary="Update Group Name" />
+                            </Link>
+                        </ListItem>
+                        <Divider />
+                        <ListItem button>
+                            <Link to='/profile/create'>
+                                <ListItemIcon> <AddIcon /> </ListItemIcon>
+                                <ListItemText primary="Create New Group" />
+                            </Link>
+                        </ListItem>
+                    </List>
+               </div>
+                
+                {/* <Link to='/profile/modify'> <Button variant="outlined" color="primary"> Update Group Name </Button></Link> */}
+                {/* <Link to='/profile/create'> <Button variant="outlined" color="primary"> Create New Group</Button></Link> */}
 
                     <Switch>
                         <Route path='/profile/create'> <CreateGroup /> </Route>
                         <Route path='/profile/modify'> <ModifyGroup groupName={this.state.groupName} modifyGroupName={this.modifyGroupName}/> </Route>
-                        <Route exact path='/profile'> <p>You're a member of <b>{this.state.groupName}</b> along with {this.state.groupMembersObjects.map((element) => ( <span key={element.id}>{element.firstName} {element.lastName} </span> ))} </p>  </Route>
+                        <Route exact path='/profile'> 
+                            <h2 className='profile--greeting'>Hello {this.state.activeUser}</h2>
+                            <p className='profile--group'>You are currently a member of <span>{this.state.groupName}</span> along with {this.state.groupMembersObjects.map((element) => ( <span key={element.id}>{element.firstName} {element.lastName} </span> ))} </p>  
+                        </Route>
                     </Switch>
             </div>
         )

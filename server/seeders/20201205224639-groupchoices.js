@@ -9,37 +9,7 @@ module.exports = {
           movieId: 80142521,
           createdAt: new Date(),
           updatedAt: new Date(),
-        },
-        {
-          groupIdFK: 1,
-          movieId: 70307407,
-          createdAt: new Date(),
-          updatedAt: new Date(),
-        },
-        {
-          groupIdFK: 1,
-          movieId: 423744,
-          createdAt: new Date(),
-          updatedAt: new Date(),
-        },
-        {
-          groupIdFK: 1,
-          movieId: 70307747,
-          createdAt: new Date(),
-          updatedAt: new Date(),
-        },
-        {
-          groupIdFK: 1,
-          movieId: 80153235,
-          createdAt: new Date(),
-          updatedAt: new Date(),
-        },
-        {
-          groupIdFK: 1,
-          movieId: 70184207,
-          createdAt: new Date(),
-          updatedAt: new Date(),
-        },
+        }
         
     ], {});
   },

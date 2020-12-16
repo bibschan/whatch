@@ -77,7 +77,7 @@ class Matches extends React.Component{
 
     componentDidMount(){
         this.getData();
-        this.getGroupName(this.props.groupId)
+        this.getGroupName(this.props.groupId);
     }
 
     render(){

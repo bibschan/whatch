@@ -8,18 +8,6 @@ module.exports = {
           groupName: 'Family <3',
           createdAt: new Date(),
           updatedAt: new Date()
-        },
-        {
-          id: 2,
-          groupName: "Best Friends",
-          createdAt: new Date(),
-          updatedAt: new Date()
-        },
-        {
-          id: 3,
-          groupName: "Brothers in action",
-          createdAt: new Date(),
-          updatedAt: new Date()
         }
         
         ], {})
