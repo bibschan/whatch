@@ -9,6 +9,6 @@ router.get("/:id", UserController.getAUser);
 router.put("/:id", UserController.updatedUser);
 router.delete("/:id", UserController.deleteUser);
 router.post('/:email',UserController.getUserByEmailForGroup);
-router.post("/login", UserController.getUserByEmail);
+// router.post("/login", UserController.getUserByEmail);
 
 export default router;

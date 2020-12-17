@@ -6,6 +6,8 @@ import userGroupsRoutes from "./../api/server/src/routes/UserGroupsRoutes.js";
 import groupRoutes from "./../api/server/src/routes/GroupRoutes.js";
 import userChoicesRoutes from "./../api/server/src/routes/UserChoicesRoutes.js";
 import groupChoicesRoutes from "./../api/server/src/routes/GroupChoicesRoutes.js";
+import loginRoute from './../api/server/src/routes/LoginRoute.js';
+
 const port = process.env.PORT || 3000;
 const cors = require("cors");
 config.config();
@@ -24,10 +26,9 @@ app.use("/groups", groupRoutes);
 app.use("/userchoices", userChoicesRoutes);
 app.use("/groupchoices", groupChoicesRoutes);
 app.use("/usergroups", userGroupsRoutes);
+app.use("/login", loginRoute);
 //
 
-// when a random route is inputed
-// app.get("/", (req, res) => {});
 
 app.listen(port, () => {
   console.log(`Server is running on PORT ${port}`);

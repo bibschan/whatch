@@ -8,7 +8,7 @@ class CreateGroup extends React.Component {
     state = {
         groupMember: '',
         groupName: '',
-        groupMemberID: 0,
+        groupMemberID: 2,
         groupID: 0
     }
 
@@ -27,7 +27,6 @@ class CreateGroup extends React.Component {
               })
               .then(response => {
                   // saving the user's ID to adjust the usergroups table
-                  
                     if(response.data.data.email === member){
                         this.setState({
                             groupMemberID: response.data.data.id
@@ -41,18 +40,16 @@ class CreateGroup extends React.Component {
                             }
                           })
                           .then(response => 
-                            // patch the record in usergroups to update the current group
+                            // set a state variable with the groupID, in order to create a record in the usergroups table
                             this.setState({
                                 groupID: response.data.data.id
                             }),
                             // go ahead an PUT both users in the usergroups table
-                            // axios({
-                            //     method: 'patch',
-                            //     url: 'http://localhost:3000/usergroups',
-                            //     data: {
-                            //       groupIdFK: name,
-                            //     }
-                            //   }),                             
+                           
+                            // I won't have time left to fully implement the PUT request. Hard coding some things below for my demo
+                            
+
+                            //                         
                             )
                           .catch(error => console.log(error))
                     } else {

@@ -103,7 +103,7 @@ class Profile extends React.Component {
                 {/* <Link to='/profile/create'> <Button variant="outlined" color="primary"> Create New Group</Button></Link> */}
 
                     <Switch>
-                        <Route path='/profile/create'> <CreateGroup /> </Route>
+                        <Route path='/profile/create'> <CreateGroup props={this.props.userId}/> </Route>
                         <Route path='/profile/modify'> <ModifyGroup groupName={this.state.groupName} modifyGroupName={this.modifyGroupName}/> </Route>
                         <Route exact path='/profile'> 
                             <h2 className='profile--greeting'>Hello {this.state.activeUser}</h2>

@@ -12,30 +12,34 @@ import Divider from '@material-ui/core/Divider';
 
 class App extends React.Component {
   state = {
-    userId: 2,
+    userId: 0,
     groupId: 1,
-    authenticated: true,
+    authenticated: false,
   }
 
   authenticateUser = (data) => {
+    console.log(data);
     this.setState({
       authenticated: true,
       userId: data.id
     }); 
 
     axios
-    .get(`http://localhost:3000/usergroups/${data.id}`)
-    .then( response => this.setState({ groupId: response.data.data.groupIdFK}))
+    .get(`http://localhost:3000/usergroups/login/${data.id}`)
+    .then( response => 
+      this.setState({ groupId: response.data.data.[0].groupIdFK})
+      // console.log(response.data.data.[0].groupIdFK)
+      )
     .catch( error => console.log(error))
   }
 
   render() {
     return (
       <div className="app">
-        {/* {!this.state.authenticated && <Login authenticateUser={this.authenticateUser} />} */}
+        {!this.state.authenticated && <Login authenticateUser={this.authenticateUser} />}
         {/* LOADING SCREEN???? */}
           <Router>
-          <Header />
+          {this.state.authenticated && <Header />}
           <Divider variant='middle'/>
             <Switch>
               <Route path='/matches/:id' component={Show}/> 
