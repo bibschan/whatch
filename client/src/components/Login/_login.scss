@@ -1,4 +1,8 @@
 .login {
+  background-image: url("reel.png");
+  background-size: cover;
+  background-position: center;
+  background-color: #f7d7ad;
   height: 100vh;
   @include flex-mixin(row, wrap, center, center);
 
@@ -8,9 +12,29 @@
     border-radius: 20px;
     padding-left: 10px;
   }
+
+  .MuiFormControl-root {
+    width: 220px;
+    margin-top: 20px;
+  }
+
+  .MuiButton-label {
+    // color: white;
+  }
+  .MuiInputBase-input {
+    background-color: white;
+    box-shadow: 10px 1px 8px 2px rgba(56, 56, 58, 0.2);
+  }
+  .MuiButton-containedPrimary {
+    width: 220px;
+    margin-top: 20px;
+    background-color: #f7d7ad;
+  }
+  form {
+  }
 }
 
 form {
-  margin-bottom: 100px;
+  // margin-bottom: 100px;
   @include flex-mixin(column, wrap, center, center);
 }

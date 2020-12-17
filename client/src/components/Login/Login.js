@@ -1,9 +1,11 @@
 import React from 'react';
-import Button from '../../elements/Buttons/Button';
 // import "./../../scss/App.css";
 import axios from 'axios';
 import TextField from '@material-ui/core/TextField';
-
+import Button from '@material-ui/core/Button';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import LockIcon from '@material-ui/icons/Lock';
+import InputAdornment from '@material-ui/core/InputAdornment';
 
 class Login extends React.Component {
     state = {
@@ -41,13 +43,9 @@ class Login extends React.Component {
         return (
             <div className="login">
                 <form onSubmit={this.authenticateUser} autoComplete='off'>
-                    {/* <label htmlFor="email" className="login--label">Email</label> */}
-                        <TextField id="standard-basic" label="Email" name='email' onChange={this.handleInput} value={this.state.email} type="email"/>
-                        {/* <input   className="login--input"></input> */}
-                    {/* <label htmlFor="password" className="login--label">Password</label> */}
-                        <TextField id="standard-basic" label="Password" name='password' onChange={this.handleInput} value={this.state.password} type="password"/>
-                        {/* <input onChange={this.handleInput}  value={this.state.password} className="login--input"></input> */}
-                    <Button />
+                    <TextField  label="Email" name='email' onChange={this.handleInput} value={this.state.email} type="email" InputProps={{startAdornment: (<InputAdornment position="start"><AccountCircle /> </InputAdornment>)}}/>
+                    <TextField  label="Password" name='password' onChange={this.handleInput} value={this.state.password} type="password"  InputProps={{startAdornment: (<InputAdornment position="start"> <LockIcon /> </InputAdornment>)}}/>
+                    <Button variant="contained" color="primary" type='submit'>Login</Button>
                 </form>
             </div>
         );

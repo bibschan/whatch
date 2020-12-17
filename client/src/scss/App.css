@@ -87,6 +87,10 @@ input {
 }
 
 .login {
+  background-image: url("reel.png");
+  background-size: cover;
+  background-position: center;
+  background-color: #f7d7ad;
   height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -112,8 +116,24 @@ input {
   padding-left: 10px;
 }
 
+.login .MuiFormControl-root {
+  width: 220px;
+  margin-top: 20px;
+}
+
+.login .MuiInputBase-input {
+  background-color: white;
+  -webkit-box-shadow: 10px 1px 8px 2px rgba(56, 56, 58, 0.2);
+          box-shadow: 10px 1px 8px 2px rgba(56, 56, 58, 0.2);
+}
+
+.login .MuiButton-containedPrimary {
+  width: 220px;
+  margin-top: 20px;
+  background-color: #f7d7ad;
+}
+
 form {
-  margin-bottom: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
