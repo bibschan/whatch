@@ -2,6 +2,11 @@
 
 Many users of streaming services struggle to find interesting content to watch with friends or partners, and beyond that, finding a show that interests everyone in the group can be challenging. Whatch is a responsive application that allows friends to create groups and swipe right or left on series/movies of their liking, creating a list and notifying group members when there’s a match.
 
+## Demo
+
+![](https://media.giphy.com/media/MffasupZc3u4R16zkV/giphy.gif)
+
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. This application is *not* ready for production.
