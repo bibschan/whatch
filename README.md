@@ -15,6 +15,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 1. Install PostgreSQL 
 2. My database is named `watching`
+3. Run the migrations and seeds using the command `sequelize db:migrate` and `sequelize db:seed:all`
 
 
 ### Installing
