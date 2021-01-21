@@ -1,6 +1,6 @@
 # Whatch
 
-Many users of streaming services struggle to find interesting content to watch with friends or partners, and beyond that, finding a show that interests everyone in the group can be challenging. Whatch is a responsive application that allows friends to create groups and swipe right or left on series/movies of their liking, creating a list and notifying group members when there’s a match.
+Many users of streaming services struggle to find interesting content to watch with friends or partners, and beyond that, finding a show that appeals to everyone can be challenging. Whatch is a responsive application that allows friends to create groups and swipe right or left on series/movies of their liking, creating a list and notifying group members when there’s a match.
 
 ## Demo
 
